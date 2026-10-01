@@ -1,0 +1,6 @@
+stage,count,pct_of_total,pct_of_previous_stage,drop_off_count,drop_off_pct
+Acquisition,20000,100.0,100.0,0,0.0
+Passed Eligibility,14195,71.0,71.0,5805,29.0
+Completed Onboarding,10435,52.2,73.5,3760,26.5
+Submitted Documents,7549,37.7,72.3,2886,27.7
+Approved,5147,25.7,68.2,2402,31.8

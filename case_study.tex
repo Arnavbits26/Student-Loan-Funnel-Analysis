@@ -1,0 +1,44 @@
+\documentclass[10pt]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{cmap}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\definecolor{DeepBlue}{RGB}{10,5,90}
+\definecolor{Green}{RGB}{27,127,59}
+\titleformat{\section}{\color{DeepBlue}\large\bfseries}{}{0em}{}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+\pagenumbering{gobble}
+
+\begin{document}
+
+{\LARGE \textbf{\color{DeepBlue} Student Loan Application Funnel Optimizer}}\\
+\textit{Analytics case study --- funnel diagnosis and onboarding A/B test}
+
+\section*{Problem}
+Student loan applicants pass through five stages --- acquisition, eligibility, onboarding, document submission, and approval --- and drop off at each one. The business needs to know where drop-off is worst, whether it varies by applicant segment, and whether a proposed onboarding redesign is actually worth shipping.
+
+\section*{Approach}
+Built a 20,000-row simulated application dataset with realistic, non-uniform drop-off probabilities (credit tier genuinely drives eligibility and approval odds, rather than uniform random chance). Computed stage-wise conversion and drop-off, segmented outcomes by credit tier and acquisition channel, and ran a controlled A/B test on a simplified onboarding flow using a two-proportion z-test with 95\% confidence intervals.
+
+\section*{Key Findings}
+\begin{itemize}[leftmargin=16pt, itemsep=4pt]
+\item \textbf{25.7\% end-to-end approval rate} (5,147 of 20,000). Drop-off is spread fairly evenly across all four transitions (27--32\% lost at each stage) --- there is no single dominant bottleneck.
+\item \textbf{Simplified onboarding produced a statistically significant +8.1 percentage-point lift} in completion: 69.4\% (control) $\rightarrow$ 77.6\% (treatment), $z=10.97$, $p<0.001$.
+\item \textbf{Credit tier drives eligibility far more than acquisition channel drives approval}: eligibility pass rate ranges from 55.5\% (Thin File) to 89.5\% (Excellent), while approval rate across channels varies by only 0.9 points (25.4--26.3\%).
+\end{itemize}
+
+\section*{Recommendation}
+Ship the simplified onboarding flow --- the lift is real and statistically defensible, not a cosmetic improvement. Because drop-off is distributed across every stage rather than concentrated in one, the same test-and-measure approach used here for onboarding should be extended to the document-submission and approval stages next, rather than assuming one fix will resolve the whole funnel. Acquisition-channel optimisation is a lower-priority lever, since channel has minimal effect on end-to-end approval.
+
+\section*{KPIs Tracked}
+Stage-wise conversion rate \textbar\ Drop-off rate per transition \textbar\ Onboarding completion rate (by A/B group) \textbar\ Eligibility pass rate (by credit tier) \textbar\ End-to-end approval rate (by acquisition channel)
+
+\vspace{8pt}
+\textit{\small Full analysis code, dataset, and interactive dashboard: see project repository.}
+
+\end{document}

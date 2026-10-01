@@ -1,0 +1,16 @@
+,0
+n_control,7081
+n_treatment,7114
+conversions_control,4917
+conversions_treatment,5518
+rate_control,0.6943934472532128
+rate_treatment,0.7756536407084622
+absolute_lift_pp,0.08126019345524937
+relative_lift_pct,11.702327229136076
+z_statistic,10.97007580919454
+p_value,5.322774890757589e-28
+ci_control_low,0.6835608023626908
+ci_control_high,0.7050152887187108
+ci_treatment_low,0.7658127575492203
+ci_treatment_high,0.7851969864427187
+significant_at_05,True
